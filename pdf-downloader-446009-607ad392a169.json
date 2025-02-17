@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "pdf-downloader-446009",
+  "private_key_id": "607ad392a1696aa953eb46d5758b0adfe02cf3ed",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC2GUyqNomXJUTO\nHSVSxLPiXbZVFn+qZCdCrbGnKMbbO1lF9Ai4sbCSEZokd1bZjeUdvtEJd159JhFx\ncwHN52Cq0hqxlOvvzDTJOVgYfF3nrvHQKPwiC3RCkJ8yul4hnblkaLik+6m8Scjc\nqRySr4RFPPCfE8Gh6w5ZipBpvwR/vUkQQI8No4y94OMl1qE8loYEG0gjmLIXhjCf\nd07bAJB/8VQeZibQWo79XebjjKYIpoziuh8BKfG6hKp3Lx76vJ3djpMC9EobYLDz\nwdXN6rx1U4LQW3cA8cVPUZQOH4kpJUPuc3P2ANG6F9TIUta5hTtYYO6gvrcPEQGh\nmpIJAeqfAgMBAAECggEAApjXGxEEDVUevMHK/SSJBuVx6uy94rQ4Sx8nCsyYvsUD\nP5gnYlrxEGQ9NTVD1n52PLeyoNaZpmHwmxRE0PxHyKfjxuc/e4AHZgdHVly6X3TY\nm1tk8nyvVR5dkYpO5V6BJ7Qb+LO4y/1RZrQ9ZWoovMQNuncRqo7WTuNHA/sRbrDs\n59/mvhtYeuVngpN9/hXucUR2zkFkOrVUuzNSWUOPk3/dhI2BvkdnrUzpgOE20ZJx\no2FFr4RnNuYZ0srAol/GTPeLg2ny/LOPPxI6D3kBJt+oJBsh3+ASVZJqDcJKdX/n\nHnZvNFl7ODgk6IblC0/yamlYhFtPG5I3we0veJPBQQKBgQDZN+l/eGULSMUY43fp\n60w4sPfB0vBVOm3RlFYcvNLT38vjNfDfw4RP8B3zgEqg7TqwXj7IEq1eyP3WQmuF\n7QvwZHr93bSN+snpkavIW1vB0xc73z8ztx5z3bSSomwJL6icFBFBKRYWpW4eVBO2\nthSqR6gXGkCkgy9OLRXaCYlFJwKBgQDWnDo5ZTJ556DKoTpoAPf9M6qgOrEtXHw4\n6vptHmLTKOGaD2+JNWyI/h2VxdiP2PnFvcARsahhGm7kwqqOhP8CXBYB5JMSUTFF\nBOx5zzVV9xqVhfFbqbQJang5P2shz/BAlghFByjueOZkGhkUdANEGBda5MKCmiBV\nMikJrvnJyQKBgQCvSLwmveuj+Hv8Qoqge9zNHpk/kk2YKQc3iSEYHZNvn/eyiPOw\nTeD2dMhml48hX23tpo+4+cFnbH/Rp1WHBCuPODY7p+2saMUIsyFRE8/uj73+9X7V\n554uV6kAbwsJOqkwEc1+rH4DlklPNf+WgEYaxqowwmGJn8bLqfwpL2rTHwKBgEvV\njKV3Yuy8so6nhjH2Fas9NI/F7ZGv2p1qOu+QCy++hGmiBrGfVSjbUqz36lx6OVhs\ngpA+DNezNXhUaVxPFqVI0OX+VRHl6tkOslkgpSIpXRV07SKMxveEzdK83Choh+bq\nnSV3MDmEMzUwG6ikjfrj4GzX5PutZrt0LBgl4lIxAoGAaJlrjmCXZk1ij0jaEjO7\n1278lz3CYvlXbjecUot+p/isj6Y+aGooEMc8cX72EoawpEQXfBj+FodY+N+VlZeQ\n3HBmJttFwJ3o7o0wsret67lG+bVFhYZ1hyokqG6GDtqePIMMxbg0eoQsJcjjRR6K\n4CRSaiVTqOOS3FcoVl5uivs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "uploadanddownloadpdf@pdf-downloader-446009.iam.gserviceaccount.com",
+  "client_id": "105973371821618777969",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/uploadanddownloadpdf%40pdf-downloader-446009.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
