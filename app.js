@@ -28,7 +28,7 @@ mongoose
 // Allow CORS for Frontend
 app.use(
   cors({
-    origin: "manohar045.vercel.app",
+    origin: "https://manohar045.vercel.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
