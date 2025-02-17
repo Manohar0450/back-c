@@ -14,48 +14,43 @@ const mongoose = require('mongoose');
 
 var app = express();
 
+// MongoDB Connection
 mongoose.connect('mongodb+srv://vajjalaabhiram:bkAJJ3HU3vpesogK@adminlogins.ofv1q.mongodb.net/')
 .then(() => {
   console.log('MongoDB connected');
 })
 .catch(err => {
   console.log('MongoDB connection error:', err);
-})
+});
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// Allow CORS for Frontend
+app.use(cors({
+  origin: 'https://front-c.vercel.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true
+}));
 
-app.use(cors());
+// Middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+// API Routes
 app.use('/api', fetchDataRouter);
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
 
-app.listen(7000, () => {
-  console.log(`The Port is running at 7000`);
-})
-
-// catch 404 and forward to error handler
+// Error Handling
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json({ error: err.message });
 });
 
 module.exports = app;
