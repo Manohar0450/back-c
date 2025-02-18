@@ -68,7 +68,6 @@ const FolderIds = {
     "R20_AIML_APiMS" : "1ajRKk_4M4nwICIWxDxxBYLij8z-UYO38",
     "R20_AIML_SCT" : "1zQ_loRMSWmgkjl-2r5thxMc2IWg7NuhV",
     "R20_AIML_UHV" : "P1Ietymo9vjaygTKeSSCVaVXuk94Jezc",
-
     "R23_AIML_ADS" : "1_ZI04tTFw5BrL-lILltYWUUppDZTARPe",
     "R23_AIML_AI" : "1xbAWCamEthX5qN2kLwIvsd6zz8YOOeKV",
     "R23_AIML_DMGT" : "1s4AZu9zqvMfALlaw1DTFTm5ZiNvAUW1e",
@@ -80,7 +79,6 @@ const FolderIds = {
     "R23_AIML_ML" : "1Kxpui1Yj1UpaE94FjMrA6daSuraFA2pG",
     "R23_AIML_OT" : "1lVSzEyAKeAcU39XManMn8dKOuSn0W1zD",
     "R23_AIML_P&S" : "1v_fboD3FIaKbxEtulP9MjqIKPtlx0wA4",
-
     "R20_IOT_M-III" : "1ZEN0lIlFgX1UudHlrzpTK9kuw9EqRksW",
     "R20_IOT_MFCS" : "1MNONeOoNwhcTpkcKygGXGz7seUgfYT1Z",
     "R20_IOT_DS" : "1-p2nsIs2igkD5EstQEoPoBdIs9Oc8n-u",
@@ -99,7 +97,6 @@ const FolderIds = {
     "R20_IOT_ESD" : "1FBhrm-VHvYAaA4YQvbLMBEWdbwLZ3V_D",
     "R20_IOT_ML" : "16IcndjPfN9I665v048ZlYsRIJcduqg80",
     "R20_IOT_SADIOT" : "1Sch7UTFuCnPiIcp-BheX4LpceVVRRm48",
-
     "R23_IOT_ADAA" : "1mOqvFZo6fMZpWlPEO6XPFRidFZWGb-93",
     "R23_IOT_DLCO" : "1OayL74MDy4c-aCa68PauBfJCPBu2Jd9P",
     "R23_IOT_DMGT" : "1ZVR0l2UkmjvJ9Cs4BsLN7iOrzM7cYVsF",
@@ -112,7 +109,6 @@ const FolderIds = {
     "R23_IOT_P&S" : "1KW42wAf8q2zVk--J_0yq2s5JBxK1BB6q",
     "R23_IOT_FSDI" : "1x2tsbfhAqn_I5mXANMRsZoBtup-yrsfj"
 }
-
 //Fetch Subjects from the backend
 const fetchSubjects = async (req, res) => {
     const Link = req.body.Link;
@@ -120,23 +116,18 @@ const fetchSubjects = async (req, res) => {
     const semester = Link.split('.')[1];
     return res.status(200).json(Subjects[Regulation][semester]);
 }
-
 const drive = google.drive({ version: 'v3', auth });
-
 // Fetch data from Google Drive 
 const fetchData = async (req, res) => {
     try {
-    
         const {category, fileName} = req.body;
         console.log(fileName, category);
         const FolderId = `${FolderIds[fileName]}`  // Replace with your folder ID
-
         if (!category) {
             return res.status(400).json({ error: "Category is required." });
         }
         let files = [];
         let nextPageToken = null;
-
         do {
             const response = await drive.files.list({
                 q: `'${FolderId}' in parents and mimeType != 'application/vnd.google-apps.folder'`,
@@ -148,23 +139,18 @@ const fetchData = async (req, res) => {
             files = files.concat(response.data.files);
             nextPageToken = response.data.nextPageToken;
         } while (nextPageToken);
-
         const filteredFiles = files.filter((file) =>
             file.name.toLowerCase().includes(category.toLowerCase())
         );
-
         if (filteredFiles.length === 0) {
             return res.status(200).json({ message: "No matching files found." });
         }
-
         return res.status(200).json(filteredFiles);
     } catch (error) {
         console.error("Error fetching data from Google Drive:", error.message);
         return res.status(500).json({ error: "Failed to fetch data from Google Drive." });
     }
 };
-
-
 // Upload file to Google Drive 
 const streamifier = require('streamifier');
 const multer = require('multer');
