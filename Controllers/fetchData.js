@@ -1,11 +1,26 @@
 const { google } = require('googleapis');
-const KEYFILEPATH = "./pdf-downloader-446009-607ad392a169.json";
+require('dotenv').config(); // Load environment variables from .env
+
 const SCOPES = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/drive.file', 'https://www.googleapis.com/auth/drive.readonly'];
 
+// Load credentials from environment variables
 const auth = new google.auth.GoogleAuth({
-    keyFile: KEYFILEPATH,
+    credentials: {
+        type: process.env.TYPE,
+        project_id: process.env.PROJECT_ID,
+        private_key_id: process.env.PRIVATE_KEY_ID,
+        private_key: process.env.PRIVATE_KEY.replace(/\\n/g, '\n'),  // Fix formatting of the private key
+        client_email: process.env.CLIENT_EMAIL,
+        client_id: process.env.CLIENT_ID,
+        auth_uri: process.env.AUTH_URI,
+        token_uri: process.env.TOKEN_URI,
+        auth_provider_x509_cert_url: process.env.AUTH_PROVIDER_X509_CERT_URL,
+        client_x509_cert_url: process.env.CLIENT_X509_CERT_URL,
+    },
     scopes: SCOPES,
 });
+
+
 
 
 //predefinig the subjects of the individual semester based on Department and Regulation
@@ -41,7 +56,7 @@ const Subjects = {
 }
 
 const FolderIds = {
-    "R20_AIML_M-III" : "1qf2pgm9DA52LtBVVORHNrSi4E9vKeGeO",
+    "R20_AIML_M-III" : "1LA_ULRmnv8c04I17X2Z3R_xpYtQiwZ7D",
     "R20_AIML_MFCS" : "1-TRUEzRMgX7Af2ZEJUw4unF4sYsjVFFV",
     "R20_AIML_DBMS" : "12455g3oRT0MqfycTMWcyKxE1kl-BLOah",
     "R20_AIML_INTRO AIML" : "1jXRPzoZDVgVXInaORfWM9v2GzTjNHxzA",
@@ -147,14 +162,13 @@ const fetchData = async (req, res) => {
         }
         return res.status(200).json(filteredFiles);
     } catch (error) {
-        console.error("Error fetching data from Google Drive:", error.message,response.json,files);
+        console.error("Error fetching data from Google Drive:", error.message);
         return res.status(500).json({ error: "Failed to fetch data from Google Drive." });
     }
 };
 // Upload file to Google Drive 
 const streamifier = require('streamifier');
 const multer = require('multer');
-const { response } = require('express');
 
 // Multer setup to handle file uploads
 const storage = multer.memoryStorage();
