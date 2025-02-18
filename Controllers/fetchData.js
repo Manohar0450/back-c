@@ -147,13 +147,14 @@ const fetchData = async (req, res) => {
         }
         return res.status(200).json(filteredFiles);
     } catch (error) {
-        console.error("Error fetching data from Google Drive:", error.message);
+        console.error("Error fetching data from Google Drive:", error.message,response.json,files);
         return res.status(500).json({ error: "Failed to fetch data from Google Drive." });
     }
 };
 // Upload file to Google Drive 
 const streamifier = require('streamifier');
 const multer = require('multer');
+const { response } = require('express');
 
 // Multer setup to handle file uploads
 const storage = multer.memoryStorage();
